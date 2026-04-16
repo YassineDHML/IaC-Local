@@ -1,0 +1,33 @@
+name: "Terraform CI/CD Pipeline"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    name: "Terraform DLC"
+    runs-on: ubuntu-latest
+
+    steps:
+      # Récupération du code source depuis le dépôt
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      # Configuration de l'environnement (Préparation)
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      # Initialisation de l'état
+      - name: Terraform Init
+        run: terraform init
+
+      # Validation & Revue (Détection des changements)
+      - name: Terraform Plan
+        run: terraform plan
+
+      # Déploiement Continu (Application des changements)
+      # Cette étape ne s'exécutera que si le "Terraform Plan" a réussi (comportement par défaut des GitHub Actions)
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
