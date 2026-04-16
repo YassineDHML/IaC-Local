@@ -7,7 +7,7 @@ variable "postgres_user" {
 variable "postgres_password" {
   description = "Mot de passe PostgreSQL"
   type        = string
-  default     = "tp_password"
+  default     = "new_password"
   sensitive   = true
 }
 
