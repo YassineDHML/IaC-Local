@@ -27,3 +27,9 @@ output "postgres_container_name" {
   description = "Nom du conteneur PostgreSQL"
   value       = docker_container.postgres.name
 }
+
+
+output "testing_CI/CD" {
+  description = "Testing CI/CD pipeline"
+  value       = "CI/CD pipeline is working correctly!"
+}
