@@ -29,7 +29,7 @@ output "postgres_container_name" {
 }
 
 
-output "testing_CI/CD" {
+output "testing_ci_cd" {
   description = "Testing CI/CD pipeline"
   value       = "CI/CD pipeline is working correctly!"
 }
